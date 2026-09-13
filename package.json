@@ -1,0 +1,23 @@
+{
+  "name": "cambio-seguro-assessment",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "nuxt": "^3.17.0",
+    "vue": "^3.5.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.0",
+    "@vue/test-utils": "^2.4.6",
+    "autoprefixer": "^10.4.20",
+    "happy-dom": "^16.7.3",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "vitest": "^2.1.8"
+  }
+}
