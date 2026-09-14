@@ -1,4 +1,5 @@
-# Cambio Seguro — Conversor de monedas
+# Cambio Seguro — Conversor de monedas 
+🔗 **Demo:** [https://cambio-seguro-assessment.vercel.app/](https://cambio-seguro-assessment.vercel.app/)
 
 Reto técnico: completar la funcionalidad de conversión de monedas sobre el
 proyecto proporcionado (Nuxt 3 + un server route de tipo de cambio ya
@@ -108,4 +109,8 @@ server/api/               exchange-rate.get.ts (dato original del reto + Zod)
 assets/css/               main.css (Tailwind + fuente Rubik self-hosted vía
                           @fontsource, sin dependencia de red en runtime)
 ```
-
+## Extras
+`Happy Path`
+![Happy path](docs/screenshots/happy_path.png)
+`Error Path`
+![Error path](docs/screenshots/error_api.png)
