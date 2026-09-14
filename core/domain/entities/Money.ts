@@ -1,7 +1,6 @@
 import { type CurrencyCode, isSupportedCurrency } from './CurrencyCode';
 import { InvalidAmountError, UnsupportedCurrencyError } from '../errors/DomainErrors';
-
-const MAX_SAFE_AMOUNT = 1_000_000_000;
+import { MONEY_CONFIG } from '@domain/config/money.config';
 
 export class Money {
   private constructor(
@@ -22,7 +21,7 @@ export class Money {
       throw new InvalidAmountError('not_positive');
     }
 
-    if (rawAmount > MAX_SAFE_AMOUNT) {
+    if (rawAmount > MONEY_CONFIG.MAX_SAFE_AMOUNT) {
       throw new InvalidAmountError('too_large');
     }
 
