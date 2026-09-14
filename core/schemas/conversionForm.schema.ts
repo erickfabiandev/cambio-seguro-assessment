@@ -1,29 +1,14 @@
-import { z } from 'zod';
-import { SUPPORTED_CURRENCIES } from '@domain/entities/CurrencyCode';
-import { CONVERSION_FORM_CONFIG } from './conversionForm.config';
-import { MONEY_CONFIG } from '@domain/config/money.config';
+import { z } from 'zod'
+import { SUPPORTED_CURRENCIES } from '../domain/entities/CurrencyCode'
 
-export const conversionFormSchema = z.object({
-  amount: z
-    .string()
-    .trim()
-    .min(1, CONVERSION_FORM_CONFIG.amount.messages.required)
-    .refine(
-      (val: string) => !Number.isNaN(Number(val)),
-      CONVERSION_FORM_CONFIG.amount.messages.invalid,
-    )
-    .refine(
-      (val: string) => Number(val) > 0,
-      CONVERSION_FORM_CONFIG.amount.messages.positive,
-    )
-    .refine(
-      (val: string) => Number(val) <= MONEY_CONFIG.MAX_SAFE_AMOUNT,
-      CONVERSION_FORM_CONFIG.amount.messages.tooLarge,
-    ),
-  from: z.enum(SUPPORTED_CURRENCIES, { errorMap: () => ({ message: CONVERSION_FORM_CONFIG.currency.messages.invalidFrom }) }),
-  to: z.enum(SUPPORTED_CURRENCIES, { errorMap: () => ({ message: CONVERSION_FORM_CONFIG.currency.messages.invalidTo }) }),
-});
+export const amountFieldSchema = z
+  .string()
+  .trim()
+  .min(1, 'Ingresa un monto.')
+  .refine((value) => Number(value) > 0, 'El monto debe ser mayor a cero.')
 
-export type ConversionFormInput = z.infer<typeof conversionFormSchema>;
+export const currencyFieldSchema = z.enum(SUPPORTED_CURRENCIES, {
+  errorMap: () => ({ message: 'Selecciona una moneda válida.' })
+})
 
-export type ConversionFormFieldErrors = Partial<Record<keyof ConversionFormInput, string>>;
+export type AmountFieldError = string | undefined

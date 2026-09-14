@@ -15,12 +15,18 @@ export default <Partial<Config>>{
       colors: {
         brand: {
           primary: '#4A28AF',
-          secondary: '#6E46E6'
+          secondary: '#6E46E6',
+          300: '#AC9BFB',
+          400: '#8B6EF7',
+          500: '#6D4AEF',
+          600: '#5B35E0',
+          700: '#4A29B8',
         },
         surface: {
           DEFAULT: '#FFFFFF',
           subtle: '#F3F3F6',
-          muted: '#F1F1F1'
+          muted: '#F1F1F1',
+          accent: '#E7E7ED'
         },
         ink: {
           DEFAULT: '#3D3D67',
@@ -34,14 +40,19 @@ export default <Partial<Config>>{
         }
       },
       fontFamily: {
-        sans: ['"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif']
+        sans: ['"Rubik", "Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif']
       },
       boxShadow: {
         card: '0 20px 45px -20px rgba(51, 32, 120, 0.35)'
       },
       borderRadius: {
-        card: '1.75rem',
+        card: '0.5rem',
         pill: '9999px'
+      },
+      screens: {
+        tablet: '768px',
+        desktop: '1024px',
+        tv: '1920px',
       }
     }
   },

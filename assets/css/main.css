@@ -4,10 +4,14 @@
 
 @layer base {
   html {
-    @apply antialiased;
+    @apply antialiased font-sans;
   }
 
   body {
-    @apply bg-surface-muted text-ink font-sans;
+    @apply bg-gradient-to-r from-brand-primary to-brand-secondary text-ink;
+  }
+  
+  [tabindex]:focus-visible {
+    @apply outline-none ring-2 ring-brand-400 ring-offset-2 ring-offset-surface;
   }
 }
